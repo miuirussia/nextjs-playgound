@@ -66,9 +66,10 @@ in stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    cp -r public $out/public
-    cp -r .next/standalone $out
-    cp -r .next/static $out/.next/static
+    mkdir -p $out $out/public $out/.next/static
+    cp -r public/* $out/public
+    cp -r .next/standalone/* $out
+    cp -r .next/static/* $out/.next/static
 
     runHook postInstall
   '';
