@@ -1,12 +1,13 @@
 "use client"
 import { useForm } from "react-hook-form";
-import { FormValues } from "@/app/form/server";
+import { FormValues, getFullName } from "@/app/form/server";
 
 export default function Form() {
   const { register, handleSubmit } = useForm<FormValues>();
 
-  const onSubmit = (data: FormValues) => {
-
+  const onSubmit = async (data: FormValues) => {
+    const result = await getFullName(data);
+    console.log(result);
   };
 
   return <div>
