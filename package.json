@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "15.0.0-rc.0",
+    "react": "19.0.0-rc-4c2e457c7c-20240522",
+    "react-dom": "19.0.0-rc-4c2e457c7c-20240522"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -25,7 +25,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "next@14.2.3": "patches/next@14.2.3.patch"
+      "next@15.0.0-rc.0": "patches/next@15.0.0-rc.0.patch"
     }
-  }
+  },
+  "packageManager": "pnpm@9.1.2+sha512.127dc83b9ea10c32be65d22a8efb4a65fb952e8fefbdfded39bdc3c97efc32d31b48b00420df2c1187ace28c921c902f0cb5a134a4d032b8b5295cbfa2c681e2"
 }
