@@ -16,9 +16,12 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.4.2
         version: 3.4.2(react-hook-form@7.51.5(react@19.0.0-rc-f994737d14-20240522))
+      babel-plugin-react-compiler:
+        specifier: ^0.0.0
+        version: 0.0.0
       next:
         specifier: ^15.0.0-rc
-        version: 15.0.0-rc.0(patch_hash=pw4ez53yr4j2iem7tkmezirvae)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
+        version: 15.0.0-rc.0(patch_hash=pw4ez53yr4j2iem7tkmezirvae)(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
       react:
         specifier: ^19.0.0-rc
         version: 19.0.0-rc-f994737d14-20240522
@@ -463,6 +466,9 @@ packages:
 
   axobject-query@3.2.1:
     resolution: {integrity: sha512-jsyHu61e6N4Vbz/v18DHwWYKK0bSWLqn47eeDSKPB7m8tqMHF9YJ+mhIk2lVteyZrY8tnSj/jHOv4YiTCuCJgg==}
+
+  babel-plugin-react-compiler@0.0.0:
+    resolution: {integrity: sha512-Kigl0V36a/6hLVH7+CCe1CCtU3mFBqBd829V//VtuG7I/pyq+B2QZJqOefd63snQmdfCryNhO9XW1FbGPBvYDA==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -2057,6 +2063,8 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
+  babel-plugin-react-compiler@0.0.0: {}
+
   balanced-match@1.0.2: {}
 
   binary-extensions@2.3.0: {}
@@ -2909,7 +2917,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@15.0.0-rc.0(patch_hash=pw4ez53yr4j2iem7tkmezirvae)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522):
+  next@15.0.0-rc.0(patch_hash=pw4ez53yr4j2iem7tkmezirvae)(babel-plugin-react-compiler@0.0.0)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522):
     dependencies:
       '@next/env': 15.0.0-rc.0
       '@swc/helpers': 0.5.11
@@ -2930,6 +2938,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 15.0.0-rc.0
       '@next/swc-win32-ia32-msvc': 15.0.0-rc.0
       '@next/swc-win32-x64-msvc': 15.0.0-rc.0
+      babel-plugin-react-compiler: 0.0.0
       sharp: 0.33.4
     transitivePeerDependencies:
       - '@babel/core'
