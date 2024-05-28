@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-virtual": "^3.5.0",
     "@hookform/resolvers": "^3.4.2",
     "babel-plugin-react-compiler": "0.0.0-experimental-592953e-20240517",
     "next": "^15.0.0-rc",
