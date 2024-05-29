@@ -1,4 +1,4 @@
 import * as y from "yup";
 
-export const FormValues = y.object({ firstName: y.string().min(1, { message: 'Required' }), lastName: y.string().min(1, { message: 'Required' }) })
+export const FormValues = y.object({ firstName: y.string().required(), lastName: y.string().required() }).required();
 export type FormValues = y.InferType<typeof FormValues>;
