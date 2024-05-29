@@ -1,9 +1,8 @@
 "use server"
+import { z } from 'zod';
 
-export interface FormValues {
-  firstName: string;
-  lastName: string;
-}
+export const FormValues = z.object({ firstName: z.string(), lastName: z.string()})
+export type FormValues = z.infer<typeof FormValues>;
 
 export async function getFullName(data: FormValues): Promise<string> {
 
