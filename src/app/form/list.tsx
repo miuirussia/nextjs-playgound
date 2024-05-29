@@ -1,14 +1,12 @@
 'use client'
 import { useRef } from "react";
-import { useVirtualizer } from "@tanstack/react-virtual";
+import { useVirtualizer } from "@/lib/virtual";
 
 interface ListProps {
   value: Array<{ completed: boolean, id: number, title: string, userId: number }>
 }
 
 export default function List({ value }: ListProps) {
-  'use no memo'
-
   const parentRef = useRef(null);
 
   const count = value.length;
