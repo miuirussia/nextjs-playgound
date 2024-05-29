@@ -1,6 +1,6 @@
 'use client'
-import { useRef } from "react"
-import { useVirtualizer } from '@tanstack/react-virtual';
+import { useRef } from "react";
+import { useVirtualizer } from "@/lib/virtual";
 
 interface ListProps {
   value: Array<{ completed: boolean, id: number, title: string, userId: number }>
@@ -21,7 +21,8 @@ export default function List({ value }: ListProps) {
   return <>
     <div
       ref={parentRef}
-      className="List overflow-auto h-400"
+      className="List overflow-auto"
+      style={{ height: 400 }}
     >
       <div
         style={{
@@ -30,8 +31,10 @@ export default function List({ value }: ListProps) {
           position: 'relative',
         }}
       >
-        {virtualItems.map((virtualRow) => (
-          <div
+        {virtualItems.map((virtualRow) => {
+          const item = value[virtualRow.index];
+
+          return <div
             key={virtualRow.index}
             className={virtualRow.index % 2 ? 'ListItemOdd' : 'ListItemEven'}
             style={{
@@ -43,9 +46,9 @@ export default function List({ value }: ListProps) {
               transform: `translateY(${virtualRow.start}px)`,
             }}
           >
-            Row {virtualRow.index}
+            {item.title}
           </div>
-        ))}
+        })}
       </div>
     </div>
   </>
