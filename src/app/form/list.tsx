@@ -7,6 +7,8 @@ interface ListProps {
 }
 
 export default function List({ value }: ListProps) {
+  'use no memo'
+
   const parentRef = useRef(null);
 
   const count = value.length;
