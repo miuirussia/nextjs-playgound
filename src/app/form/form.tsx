@@ -2,7 +2,8 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { FormValues, getFullName } from "@/app/form/server";
+import { getFullName } from "@/app/form/server";
+import { FormValues } from "@/app/form/types";
 
 export default function Form() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValues>({ resolver: yupResolver(FormValues) });
