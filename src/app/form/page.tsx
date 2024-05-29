@@ -9,7 +9,7 @@ const Todos = z.array(z.object({ completed: z.boolean(), id: z.number(), title: 
 type Todos = z.infer<typeof Todos>
 
 export default async function FormView() {
-  const data = await fetch('https://jsonplaceholder.typicode.com/todos').then(d => d.json()).then(Todos.parseAsync);
+  const data = await fetch('https://jsonplaceholder.typicode.com/todos').then(d => d.json()).then(d => Todos.parseAsync(d));
 
   after(() => {
     console.log('after');
