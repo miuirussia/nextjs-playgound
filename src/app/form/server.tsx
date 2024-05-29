@@ -1,8 +1,8 @@
 "use server"
-import { z } from 'zod';
+import * as y from "yup";
 
-export const FormValues = z.object({ firstName: z.string().min(1, { message: 'Required' }), lastName: z.string().min(1, { message: 'Required' }) })
-export type FormValues = z.infer<typeof FormValues>;
+export const FormValues = y.object({ firstName: y.string().min(1, { message: 'Required' }), lastName: y.string().min(1, { message: 'Required' }) })
+export type FormValues = y.InferType<typeof FormValues>;
 
 export async function getFullName(data: FormValues): Promise<string> {
 
