@@ -4,11 +4,12 @@ import { useForm } from "react-hook-form";
 import { FormValues, getFullName } from "@/app/form/server";
 
 export default function Form() {
-  const { register, handleSubmit, formState } = useForm<FormValues>();
+  const { register, handleSubmit, reset } = useForm<FormValues>();
 
   const onSubmit = async (data: FormValues) => {
     const result = await getFullName(data);
     console.log(result);
+    reset();
   };
 
   return <form onSubmit={handleSubmit(onSubmit)} className="m-1">
@@ -17,7 +18,6 @@ export default function Form() {
     <button
       type="submit"
       className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-      disabled={formState.isLoading}
     >
       Send
     </button>
