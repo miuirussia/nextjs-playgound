@@ -9,41 +9,50 @@ interface ListProps {
 export default function List({ value }: ListProps) {
   const parentRef = useRef(null);
 
-  const rowVirtualizer = useVirtualizer({
-    count: value.length,
+  const count = value.length;
+  const virtualizer = useVirtualizer({
+    count,
     getScrollElement: () => parentRef.current,
     estimateSize: () => 35,
   });
 
-  const virtualItems = rowVirtualizer.getVirtualItems();
-  const totalSize = rowVirtualizer.getTotalSize();
+  const items = virtualizer.getVirtualItems()
 
   return <>
     <div
       ref={parentRef}
-      className="List overflow-y-auto contain-strict"
-      style={{ height: 400 }}
+      className="List w-full overflow-y-auto contain-strict"
+      style={{
+        height: 400,
+      }}
     >
       <div
         className="relative w-full"
         style={{
-          height: `${totalSize}px`,
+          height: virtualizer.getTotalSize(),
         }}
       >
-        <div className="absolute top-0 left-0 w-full" style={{ transform: `translateY(${virtualItems[0]?.start ?? 0}px)` }}>
-          {virtualItems.map((virtualRow) => {
-            const item = value[virtualRow.index];
-
-            return <div
+        <div
+          className="absolute top-0 left-0 w-full"
+          style={{
+            transform: `translateY(${items[0]?.start ?? 0}px)`,
+          }}
+        >
+          {items.map((virtualRow) => (
+            <div
               key={virtualRow.key}
               data-index={virtualRow.index}
-              ref={rowVirtualizer.measureElement}
-              className={virtualRow.index % 2 ? 'ListItemOdd' : 'ListItemEven'}
+              ref={virtualizer.measureElement}
+              className={
+                virtualRow.index % 2 ? 'ListItemOdd' : 'ListItemEven'
+              }
             >
-              <div>{item.id} {item.userId} {item.completed ? 'true' : 'false'}</div>
-              <div>{item.title}</div>
+              <div style={{ padding: '10px 0' }}>
+                <div>Row {virtualRow.index}</div>
+                <div>{value[virtualRow.index].title}</div>
+              </div>
             </div>
-          })}
+          ))}
         </div>
       </div>
     </div>
