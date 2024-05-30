@@ -1,24 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
-import * as y from "yup";
+import { z } from "zod";
 
 import Form from "@/app/form/form";
 import List from "@/app/form/list";
 
-const Todos = y.array(
-  y.object({
-    completed: y.boolean().required(),
-    id: y.number().required(),
-    title: y.string().required(),
-    userId: y.number().required()
+const Todos = z.array(
+  z.object({
+    completed: z.boolean(),
+    id: z.number(),
+    title: z.string(),
+    userId: z.number()
   })
-).required();
-type Todos = y.InferType<typeof Todos>
+);
+type Todos = z.infer<typeof Todos>
 
 export default async function FormView() {
   const data = await fetch("https://jsonplaceholder.typicode.com/todos")
     .then(d => d.json())
-    .then(d => Todos.validate(d));
+    .then(d => Todos.parseAsync(d));
 
   return <div>
     <Image

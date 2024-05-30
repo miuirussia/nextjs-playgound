@@ -1,6 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { getFullName } from "@/app/form/server";
 import { FormValues } from "@/app/form/types";
@@ -10,7 +10,7 @@ export default function Form() {
     {
       mode: "all",
       defaultValues: { firstName: "", lastName: "" },
-      resolver: yupResolver(FormValues)
+      resolver: zodResolver(FormValues)
     }
   );
 
