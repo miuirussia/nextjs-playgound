@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useRef } from "react";
 import { useVirtualizer } from "@/lib/virtual";
 
@@ -16,7 +16,7 @@ export default function List({ value }: ListProps) {
     estimateSize: () => 35,
   });
 
-  const items = virtualizer.getVirtualItems()
+  const items = virtualizer.getVirtualItems();
 
   return <>
     <div
@@ -41,7 +41,7 @@ export default function List({ value }: ListProps) {
               data-index={virtualRow.index}
               ref={virtualizer.measureElement}
               className={
-                virtualRow.index % 2 ? 'ListItemOdd' : 'ListItemEven'
+                virtualRow.index % 2 ? "ListItemOdd" : "ListItemEven"
               }
             >
               <div className="p-1">
@@ -53,5 +53,5 @@ export default function List({ value }: ListProps) {
         </div>
       </div>
     </div>
-  </>
+  </>;
 }

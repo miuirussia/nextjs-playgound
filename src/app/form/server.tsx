@@ -1,4 +1,5 @@
-"use server"
+"use server";
+import "server-only";
 import { FormValues } from "@/app/form/types";
 
 export async function getFullName(data: FormValues): Promise<string> {
@@ -7,5 +8,5 @@ export async function getFullName(data: FormValues): Promise<string> {
 
   console.log("server action", data);
 
-  return `Hello, ${data.firstName} ${data.lastName}!`
+  return `Hello, ${data.firstName} ${data.lastName}!`;
 }

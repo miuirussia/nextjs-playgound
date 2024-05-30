@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -6,8 +6,11 @@ import { getFullName } from "@/app/form/server";
 import { FormValues } from "@/app/form/types";
 
 export default function Form() {
-  const { register, handleSubmit, reset, formState: { isValid } } = useForm<FormValues>(
-    { resolver: yupResolver(FormValues) }
+  const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm<FormValues>(
+    {
+      defaultValues: { firstName: "", lastName: "" },
+      resolver: yupResolver(FormValues, undefined, { mode: "sync", raw: true })
+    }
   );
 
   const onSubmit = async (data: FormValues) => {
@@ -16,9 +19,11 @@ export default function Form() {
     reset();
   };
 
+  console.log(errors);
+
   return <form onSubmit={handleSubmit(onSubmit)} className="m-1">
     <input
-      {...register('firstName')}
+      {...register("firstName")}
       className={
         "bg-gray-50 border border-gray-300 " +
         "text-gray-900 text-sm rounded-lg focus:ring-blue-500 " +
@@ -28,8 +33,9 @@ export default function Form() {
       }
       placeholder="First name"
     />
+    {errors.firstName?.message}
     <input
-      {...register('lastName')}
+      {...register("lastName")}
       className={
         "bg-gray-50 border border-gray-300 " +
         "text-gray-900 text-sm rounded-lg focus:ring-blue-500 " +
@@ -39,6 +45,7 @@ export default function Form() {
       }
       placeholder="Last name"
     />
+    {errors.lastName?.message}
     <button
       type="submit"
       className={
@@ -50,5 +57,5 @@ export default function Form() {
     >
       Send
     </button>
-  </form>
+  </form>;
 }

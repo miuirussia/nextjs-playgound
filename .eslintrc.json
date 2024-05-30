@@ -5,6 +5,8 @@
   ],
   "rules": {
     "max-len": ["error", { "code": 120 }],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
     "react-compiler/react-compiler": "error"
   }
 }

@@ -12,11 +12,11 @@ const Todos = y.array(
     title: y.string().required(),
     userId: y.number().required()
   })
-).required()
+).required();
 type Todos = y.InferType<typeof Todos>
 
 export default async function FormView() {
-  const data = await fetch('https://jsonplaceholder.typicode.com/todos')
+  const data = await fetch("https://jsonplaceholder.typicode.com/todos")
     .then(d => d.json())
     .then(d => Todos.validate(d));
 
@@ -33,5 +33,5 @@ export default async function FormView() {
     <Link href="/">Back</Link>
     <Form />
     <List value={data} />
-  </div>
+  </div>;
 }
