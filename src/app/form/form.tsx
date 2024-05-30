@@ -6,10 +6,10 @@ import { getFullName } from "@/app/form/server";
 import { FormValues } from "@/app/form/types";
 
 export default function Form() {
-  const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm<FormValues>(
+  const { register, handleSubmit, reset, formState: { errors, isValid, isSubmitting } } = useForm<FormValues>(
     {
       defaultValues: { firstName: "", lastName: "" },
-      resolver: yupResolver(FormValues, undefined, { mode: "sync", raw: true })
+      resolver: yupResolver(FormValues)
     }
   );
 
@@ -18,8 +18,6 @@ export default function Form() {
     console.log(result);
     reset();
   };
-
-  console.log(errors);
 
   return <form onSubmit={handleSubmit(onSubmit)} className="m-1">
     <input
@@ -51,9 +49,11 @@ export default function Form() {
       className={
         "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 " +
         "focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 " +
-        "dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        "dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 " +
+        (isValid ? "dark:bg-green-700 " : "dark:bg-red-700 ") +
+        (isSubmitting ? "opacity-50" : "")
       }
-      disabled={!isValid}
+      disabled={!isValid || isSubmitting}
     >
       Send
     </button>
