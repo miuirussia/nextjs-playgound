@@ -4,6 +4,7 @@
     "eslint-plugin-react-compiler"
   ],
   "rules": {
+    "max-len": ["error", { "code": 120 }],
     "react-compiler/react-compiler": "error"
   }
 }
