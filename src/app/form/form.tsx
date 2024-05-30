@@ -8,6 +8,7 @@ import { FormValues } from "@/app/form/types";
 export default function Form() {
   const { register, handleSubmit, reset, formState: { errors, isValid, isSubmitting } } = useForm<FormValues>(
     {
+      mode: "all",
       defaultValues: { firstName: "", lastName: "" },
       resolver: yupResolver(FormValues)
     }
@@ -31,7 +32,7 @@ export default function Form() {
       }
       placeholder="First name"
     />
-    {errors.firstName?.message}
+    {errors.firstName ? <p className="text-red-700">{errors.firstName.message}</p> : null}
     <input
       {...register("lastName")}
       className={
@@ -43,7 +44,7 @@ export default function Form() {
       }
       placeholder="Last name"
     />
-    {errors.lastName?.message}
+    {errors.lastName ? <p className="text-red-700">{errors.lastName.message}</p> : null}
     <button
       type="submit"
       className={
