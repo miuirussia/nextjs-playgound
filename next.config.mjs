@@ -5,6 +5,7 @@ const nextConfig = {
     after: true,
     ppr: true,
     reactCompiler: true,
+    taint: true,
     typedRoutes: true,
   },
 };
