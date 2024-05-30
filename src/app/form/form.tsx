@@ -32,7 +32,7 @@ export default function Form() {
       }
       placeholder="First name"
     />
-    {errors.firstName ? <p className="text-red-700">{errors.firstName.message}</p> : null}
+    {errors.firstName ? <p className="text-red-500">{errors.firstName.message}</p> : null}
     <input
       {...register("lastName")}
       className={
@@ -44,7 +44,7 @@ export default function Form() {
       }
       placeholder="Last name"
     />
-    {errors.lastName ? <p className="text-red-700">{errors.lastName.message}</p> : null}
+    {errors.lastName ? <p className="text-red-500">{errors.lastName.message}</p> : null}
     <button
       type="submit"
       className={
