@@ -21,10 +21,7 @@ export default function List({ value }: ListProps) {
   return <>
     <div
       ref={parentRef}
-      className="List w-full overflow-y-auto contain-strict"
-      style={{
-        height: 400,
-      }}
+      className="List w-full h-[400px] overflow-y-auto contain-strict"
     >
       <div
         className="relative w-full"
@@ -47,7 +44,7 @@ export default function List({ value }: ListProps) {
                 virtualRow.index % 2 ? 'ListItemOdd' : 'ListItemEven'
               }
             >
-              <div style={{ padding: '10px 0' }}>
+              <div className="p-1">
                 <div>Row {virtualRow.index}</div>
                 <div>{value[virtualRow.index].title}</div>
               </div>

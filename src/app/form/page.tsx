@@ -29,7 +29,7 @@ export default async function FormView() {
     <Image
       src="/vercel.svg"
       alt="Vercel Logo"
-      className="dark:invert"
+      className="dark:invert w-[100px] h-[24px]"
       width={100}
       height={24}
       priority
