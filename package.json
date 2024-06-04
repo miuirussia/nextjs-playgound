@@ -12,7 +12,7 @@
     "@hookform/resolvers": "^3.4.2",
     "@tanstack/react-virtual": "^3.5.0",
     "babel-plugin-react-compiler": "0.0.0-experimental-592953e-20240517",
-    "next": "rc",
+    "next": "canary",
     "react": "rc",
     "react-dom": "rc",
     "react-hook-form": "^7.51.5",
@@ -36,7 +36,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "next@15.0.0-rc.0": "patches/next@15.0.0-rc.0.patch"
+      "next@15.0.0-canary.10": "patches/next@15.0.0-canary.10.patch"
     }
   },
   "packageManager": "pnpm@9.1.4+sha256.30a1801ac4e723779efed13a21f4c39f9eb6c9fbb4ced101bce06b422593d7c9"

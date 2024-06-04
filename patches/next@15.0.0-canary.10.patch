@@ -1,0 +1,43 @@
+diff --git a/dist/telemetry/post-payload.js b/dist/telemetry/post-payload.js
+index 5ad05fcca3ca723c857ee6c891f35e242d181ef1..85990e4595d88aedf7672cdfdac9efa528dfe8b2 100644
+--- a/dist/telemetry/post-payload.js
++++ b/dist/telemetry/post-payload.js
+@@ -15,6 +15,8 @@ function _interop_require_default(obj) {
+     };
+ }
+ function _postPayload(endpoint, body, signal) {
++    return Promise.resolve(); // Disable telemetry
++
+     if (!signal && 'timeout' in AbortSignal) {
+         signal = AbortSignal.timeout(5000);
+     }
+diff --git a/dist/telemetry/storage.js b/dist/telemetry/storage.js
+index 4d9a1558773e805664ad9b2b1abb88693342bf5c..c67371a5661ce21def970eea5ef22856a1bc41c9 100644
+--- a/dist/telemetry/storage.js
++++ b/dist/telemetry/storage.js
+@@ -106,7 +106,7 @@ class Telemetry {
+             console.log();
+         };
+         this.setEnabled = (_enabled)=>{
+-            const enabled = !!_enabled;
++            const enabled = false; // Disable telemetry
+             this.conf && this.conf.set(TELEMETRY_KEY_ENABLED, enabled);
+             return this.conf && this.conf.path;
+         };
+@@ -273,12 +273,16 @@ class Telemetry {
+         return generated;
+     }
+     get isDisabled() {
++        return true; // Disable telemetry
++
+         if (!!this.NEXT_TELEMETRY_DISABLED || !this.conf) {
+             return true;
+         }
+         return this.conf.get(TELEMETRY_KEY_ENABLED, true) === false;
+     }
+     get isEnabled() {
++        return false; // Disable telemetry
++
+         return !this.NEXT_TELEMETRY_DISABLED && !!this.conf && this.conf.get(TELEMETRY_KEY_ENABLED, true) !== false;
+     }
+     async getProjectId() {
