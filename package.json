@@ -11,7 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",
     "@tanstack/react-virtual": "^3.5.0",
-    "babel-plugin-react-compiler": "0.0.0-experimental-592953e-20240517",
+    "babel-plugin-react-compiler": "latest",
     "next": "canary",
     "react": "rc",
     "react-dom": "rc",
@@ -20,7 +20,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/node": "^20.12.13",
+    "@types/node": "^20.14.1",
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
     "eslint": "^8.57.0",
