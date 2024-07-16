@@ -12,7 +12,7 @@ index 5ad05fcca3ca723c857ee6c891f35e242d181ef1..85990e4595d88aedf7672cdfdac9efa5
          signal = AbortSignal.timeout(5000);
      }
 diff --git a/dist/telemetry/storage.js b/dist/telemetry/storage.js
-index 4d9a1558773e805664ad9b2b1abb88693342bf5c..c67371a5661ce21def970eea5ef22856a1bc41c9 100644
+index 4d9a1558773e805664ad9b2b1abb88693342bf5c..9578993ec83701dee9f4bfd81a8818dd75b1a461 100644
 --- a/dist/telemetry/storage.js
 +++ b/dist/telemetry/storage.js
 @@ -106,7 +106,7 @@ class Telemetry {
@@ -20,7 +20,7 @@ index 4d9a1558773e805664ad9b2b1abb88693342bf5c..c67371a5661ce21def970eea5ef22856
          };
          this.setEnabled = (_enabled)=>{
 -            const enabled = !!_enabled;
-+            const enabled = false; // Disable telemetry
++            const enabled = false; // Disable telem
              this.conf && this.conf.set(TELEMETRY_KEY_ENABLED, enabled);
              return this.conf && this.conf.path;
          };
