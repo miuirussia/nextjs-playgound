@@ -8,6 +8,20 @@ const nextConfig = {
     taint: true,
     typedRoutes: true,
   },
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "x-powered-by",
+            value: "KDevLab Engine"
+          }
+        ]
+      }
+    ];
+  },
 };
 
 export default nextConfig;
