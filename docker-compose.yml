@@ -1,0 +1,6 @@
+services:
+  main:
+    image: nextjs-playground
+    build: .
+    ports:
+      - "3000:3000"
