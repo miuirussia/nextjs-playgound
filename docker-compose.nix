@@ -26,7 +26,7 @@
     log-driver = "journald";
     extraOptions = [
       "--network-alias=main"
-      "--network=nextjs-playground_default"
+      "--network=nextjs-playground-default"
     ];
   };
   systemd.services."podman-nextjs-playground-main" = {
@@ -34,10 +34,10 @@
       Restart = lib.mkOverride 500 "no";
     };
     after = [
-      "podman-network-nextjs-playground_default.service"
+      "podman-network-nextjs-playground-default.service"
     ];
     requires = [
-      "podman-network-nextjs-playground_default.service"
+      "podman-network-nextjs-playground-default.service"
     ];
     partOf = [
       "podman-compose-nextjs-playground-root.target"
@@ -48,15 +48,15 @@
   };
 
   # Networks
-  systemd.services."podman-network-nextjs-playground_default" = {
+  systemd.services."podman-network-nextjs-playground-default" = {
     path = [ pkgs.podman ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStop = "podman network rm -f nextjs-playground_default";
+      ExecStop = "podman network rm -f nextjs-playground-default";
     };
     script = ''
-      podman network inspect nextjs-playground_default || podman network create nextjs-playground_default
+      podman network inspect nextjs-playground-default || podman network create nextjs-playground-default
     '';
     partOf = [ "podman-compose-nextjs-playground-root.target" ];
     wantedBy = [ "podman-compose-nextjs-playground-root.target" ];
