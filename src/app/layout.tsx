@@ -1,5 +1,7 @@
 import { StrictMode } from "react";
+import { Open_Sans } from "next/font/google";
 import type { Metadata } from "next";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,6 +15,8 @@ export const metadata: Metadata = {
   generator: "KDevLab Engine",
 };
 
+const openSans = Open_Sans({ weight: "500", subsets: ["cyrillic", "cyrillic-ext", "latin", "latin-ext"] });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +25,7 @@ export default function RootLayout({
   return (
     <StrictMode>
       <html lang="en">
-        <body>{children}</body>
+        <body className={openSans.className}>{children}</body>
       </html>
     </StrictMode>
   );

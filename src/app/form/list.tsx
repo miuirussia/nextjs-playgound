@@ -35,8 +35,10 @@ export default function List({ value }: ListProps) {
             transform: `translateY(${items[0]?.start ?? 0}px)`,
           }}
         >
-          {items.map((virtualRow) => (
-            <div
+          {items.map((virtualRow) => {
+            const item = value[virtualRow.index];
+
+            return <div
               key={virtualRow.key}
               data-index={virtualRow.index}
               ref={virtualizer.measureElement}
@@ -45,11 +47,14 @@ export default function List({ value }: ListProps) {
               }
             >
               <div className="p-1">
-                <div>Row {virtualRow.index}</div>
-                <div>{value[virtualRow.index].title}</div>
+                <div>Row {virtualRow.index}{" "}
+                  {item.completed ?
+                    <span className="text-green-700">✓</span> :
+                    <span className="text-red-700">×</span>}</div>
+                <div className="text-sm">{item.title}</div>
               </div>
-            </div>
-          ))}
+            </div>;
+          })}
         </div>
       </div>
     </div>
