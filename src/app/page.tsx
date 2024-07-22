@@ -14,9 +14,15 @@ export default function Home() {
           }
         >
           Go to&nbsp;
-          <Link href="/form">
-            <code className="font-mono font-bold">form</code>
-          </Link>
+          <span>
+            <Link href="/form">
+              <code className="font-mono font-bold">form</code>
+            </Link>
+            {" "}|{" "}
+            <Link href="/table">
+              <code className="font-mono font-bold">table</code>
+            </Link>
+          </span>
         </p>
         <div
           className={
