@@ -2,5 +2,5 @@ import { useVirtualizer as useVirtualizerOriginal } from "@tanstack/react-virtua
 
 export const useVirtualizer: typeof useVirtualizerOriginal = ((...args) => {
   "use no memo";
-  return { ...useVirtualizerOriginal(...args) };
+  return useVirtualizerOriginal(...args);
 }) as typeof useVirtualizerOriginal;
